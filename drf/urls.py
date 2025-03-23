@@ -21,6 +21,13 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+#JWT
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
+#Swagger
 schema_view = get_schema_view(
     openapi.Info(
         title='API for Programer',
@@ -37,6 +44,8 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'), 
     path('admin/', admin.site.urls),
     path('api_programer/app/', include('api.urls') ),
     path('api_cars/app/', include('api_cars.urls') ),
