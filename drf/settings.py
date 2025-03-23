@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'api_cars',
     'api_animals',
+    'api_computers',
     'api'
 ]
 
